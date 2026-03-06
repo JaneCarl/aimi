@@ -371,6 +371,8 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .content-list {
-  @extend .app-container;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
 }
 </style>

@@ -217,6 +217,8 @@ getList()
 
 <style scoped lang="scss">
 .financial-list {
-  @extend .app-container;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
 }
 </style>

@@ -186,6 +186,8 @@ getList()
 
 <style scoped lang="scss">
 .coach-list {
-  @extend .app-container;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
 }
 </style>
