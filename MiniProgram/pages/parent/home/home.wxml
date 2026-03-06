@@ -1,0 +1,70 @@
+<view class="home-page">
+  <!-- 轮播图 -->
+  <swiper
+    class="banner-swiper"
+    indicator-dots
+    autoplay
+    circular
+    interval="3000"
+    duration="500"
+  >
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image class="banner-image" src="{{item.image}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 学员信息 -->
+  <view class="student-info card">
+    <view class="student-header" bindtap="switchStudent">
+      <image class="student-avatar" src="{{studentPhoto || '/images/default-avatar.png'}}" mode="aspectFill" />
+      <view class="student-name">
+        <text class="name">宝宝</text>
+        <text class="switch-hint">点击切换 ></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 下一次课程 -->
+  <view class="next-class card" wx:if="{{nextClass}}">
+    <view class="section-header">
+      <text class="section-title">下一次课程</text>
+    </view>
+    <view class="class-card">
+      <view class="class-time">
+        <text class="date">{{nextClass.class_date}}</text>
+        <text class="time">{{nextClass.start_time}} - {{nextClass.end_time}}</text>
+      </view>
+      <view class="class-info">
+        <text class="class-name">{{nextClass.class_name}}</text>
+        <text class="coach-name">教练：{{nextClass.coach_name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 优惠课程 -->
+  <view class="promo-courses">
+    <view class="section-header">
+      <text class="section-title">优惠课程</text>
+    </view>
+    <scroll-view scroll-x class="course-scroll">
+      <view
+        class="course-item"
+        wx:for="{{promotionalCourses}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="navigateToCourse"
+      >
+        <view class="course-title">{{item.title}}</view>
+        <view class="course-price">
+          <text class="price">¥{{item.promotional_price}}</text>
+          <text class="original-price">¥{{item.original_price}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{promotionalCourses.length === 0}}">
+    <text>暂无优惠课程</text>
+  </view>
+</view>

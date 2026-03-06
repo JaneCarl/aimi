@@ -1,0 +1,159 @@
+.home-page {
+  padding-bottom: 120rpx;
+}
+
+/* 轮播图 */
+.banner-swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 学员信息 */
+.student-info {
+  margin: 24rpx;
+}
+
+.student-header {
+  display: flex;
+  align-items: center;
+}
+
+.student-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.student-name {
+  flex: 1;
+
+  .name {
+    display: block;
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8rpx;
+  }
+
+  .switch-hint {
+    font-size: 24rpx;
+    color: #999;
+  }
+}
+
+/* 下一次课程 */
+.next-class {
+  margin: 0 24rpx 24rpx;
+}
+
+.section-header {
+  margin-bottom: 20rpx;
+
+  .section-title {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.class-card {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+
+  .class-time {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16rpx;
+
+    .date {
+      font-size: 28rpx;
+      color: #666;
+      margin-bottom: 8rpx;
+    }
+
+    .time {
+      font-size: 36rpx;
+      font-weight: 600;
+      color: #FF6B6B;
+    }
+  }
+
+  .class-info {
+    display: flex;
+    flex-direction: column;
+
+    .class-name {
+      font-size: 28rpx;
+      color: #333;
+      margin-bottom: 8rpx;
+    }
+
+    .coach-name {
+      font-size: 24rpx;
+      color: #999;
+    }
+  }
+}
+
+/* 优惠课程 */
+.promo-courses {
+  padding: 0 24rpx;
+}
+
+.course-scroll {
+  white-space: nowrap;
+}
+
+.course-item {
+  display: inline-block;
+  width: 300rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-right: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+  white-space: normal;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .course-title {
+    font-size: 28rpx;
+    color: #333;
+    margin-bottom: 16rpx;
+  }
+
+  .course-price {
+    display: flex;
+    align-items: baseline;
+
+    .price {
+      font-size: 40rpx;
+      font-weight: 600;
+      color: #FF6B6B;
+      margin-right: 16rpx;
+    }
+
+    .original-price {
+      font-size: 24rpx;
+      color: #999;
+      text-decoration: line-through;
+    }
+  }
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}

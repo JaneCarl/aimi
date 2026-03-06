@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/parent/home/home",
+    "pages/parent/schedule/schedule",
+    "pages/parent/leave/leave",
+    "pages/parent/growth/growth",
+    "pages/parent/my/my",
+    "pages/coach/home/home",
+    "pages/coach/class/class",
+    "pages/coach/detail/detail",
+    "pages/coach/students/students",
+    "pages/coach/student-detail/student-detail",
+    "pages/coach/my/my"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF6B6B",
+    "navigationBarTitleText": "艾米格斗",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#FF6B6B",
+    "backgroundColor": "#ffffff"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

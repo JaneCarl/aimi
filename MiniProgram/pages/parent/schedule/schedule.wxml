@@ -1,0 +1,85 @@
+<view class="schedule-page">
+  <!-- 日历 -->
+  <view class="calendar-card card">
+    <view class="calendar-header">
+      <view class="month-btn" bindtap="prevMonth">&lt;</view>
+      <view class="current-month">{{currentMonth}}</view>
+      <view class="month-btn" bindtap="nextMonth">&gt;</view>
+    </view>
+
+    <view class="calendar-weekdays">
+      <text class="weekday" wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this">{{item}}</text>
+    </view>
+
+    <view class="calendar-days">
+      <view
+        class="calendar-day {{item.status}}"
+        wx:for="{{calendarDays}}"
+        wx:key="date"
+      >
+        <text class="day-number">{{item.day}}</text>
+        <text class="day-indicator" wx:if="{{item.status}}">●</text>
+      </view>
+    </view>
+
+    <view class="calendar-legend">
+      <view class="legend-item">
+        <text class="legend-dot upcoming"></text>
+        <text>未上</text>
+      </view>
+      <view class="legend-item">
+        <text class="legend-dot normal"></text>
+        <text>正常</text>
+      </view>
+      <view class="legend-item">
+        <text class="legend-dot late"></text>
+        <text>迟到</text>
+      </view>
+      <view class="legend-item">
+        <text class="legend-dot leave"></text>
+        <text>请假</text>
+      </view>
+      <view class="legend-item">
+        <text class="legend-dot completed"></text>
+        <text>已完成</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 课程列表 -->
+  <view class="schedule-list">
+    <view class="section-header">
+      <text class="section-title">课程列表</text>
+    </view>
+
+    <view class="schedule-item card" wx:for="{{scheduleList}}" wx:key="id">
+      <view class="schedule-info">
+        <view class="schedule-time">
+          <text class="date">{{item.class_date}}</text>
+          <text class="time">{{item.start_time}} - {{item.end_time}}</text>
+        </view>
+        <view class="schedule-class">
+          <text class="class-name">{{item.class_name}}</text>
+          <text class="coach-name">教练：{{item.coach_name}}</text>
+        </view>
+      </view>
+      <view class="schedule-status">
+        <text class="tag {{getStatusClass(item.status === 'completed' ? 'completed' : item.attendance_status || 'upcoming')}}">
+          {{getStatusText(item.status === 'completed' ? 'completed' : item.attendance_status || 'upcoming')}}
+        </text>
+      </view>
+      <button
+        class="leave-btn"
+        wx:if="{{item.status !== 'completed' && !item.attendance_status}}"
+        data-schedule="{{item}}"
+        bindtap="applyLeave"
+      >
+        请假
+      </button>
+    </view>
+
+    <view class="empty" wx:if="{{scheduleList.length === 0}}">
+      <text>本月暂无课程安排</text>
+    </view>
+  </view>
+</view>

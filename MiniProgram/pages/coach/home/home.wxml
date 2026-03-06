@@ -1,0 +1,43 @@
+<view class="home-page">
+  <!-- 轮播图 -->
+  <swiper
+    class="banner-swiper"
+    indicator-dots
+    autoplay
+    circular
+    interval="3000"
+    duration="500"
+  >
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image class="banner-image" src="{{item.image}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 教练信息 -->
+  <view class="coach-card card">
+    <view class="coach-info">
+      <image class="coach-avatar" src="{{coach.avatar || '/images/default-avatar.png'}}" mode="aspectFill" />
+      <view class="coach-details">
+        <text class="coach-name">{{coach.nickname || '教练'}}</text>
+        <text class="coach-welcome">欢迎回来！</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 今日课程简览 -->
+  <view class="today-overview card">
+    <view class="overview-header">
+      <text class="overview-title">今日课程</text>
+      <text class="overview-count">共 {{todayCount}} 节</text>
+    </view>
+
+    <view class="overview-actions">
+      <button class="action-btn primary" bindtap="navigateToClass">
+        查看课堂
+      </button>
+      <button class="action-btn" bindtap="navigateToStudents">
+        查看学生
+      </button>
+    </view>
+  </view>
+</view>

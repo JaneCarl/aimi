@@ -1,0 +1,28 @@
+<view class="growth-page">
+  <view class="growth-timeline">
+    <view class="timeline-item card" wx:for="{{growthRecords}}" wx:key="id">
+      <view class="timeline-header">
+        <text class="timeline-date">{{formatDate(item.created_at)}}</text>
+        <text class="timeline-coach">{{item.coach_name || '教练'}}</text>
+      </view>
+
+      <view class="timeline-content">
+        <text class="timeline-comment">{{item.comment}}</text>
+      </view>
+
+      <view class="timeline-media" wx:if="{{item.media_url}}">
+        <image
+          class="media-image"
+          src="{{item.media_url}}"
+          mode="aspectFill"
+          data-url="{{item.media_url}}"
+          bindtap="previewImage"
+        />
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{growthRecords.length === 0}}">
+      <text>暂无成长记录</text>
+    </view>
+  </view>
+</view>

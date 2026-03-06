@@ -1,0 +1,57 @@
+<view class="my-page">
+  <!-- 学员信息卡片 -->
+  <view class="student-card">
+    <view class="student-header" bindtap="switchStudent">
+      <image class="student-avatar" src="{{student.photo || '/images/default-avatar.png'}}" mode="aspectFill" />
+      <view class="student-info">
+        <text class="student-name">{{student.name}}</text>
+        <text class="student-age">{{getAge(student.birth_date)}}岁</text>
+      </view>
+      <text class="switch-text">切换 ></text>
+    </view>
+
+    <view class="student-stats">
+      <view class="stat-item">
+        <text class="stat-value">{{student.remaining_hours}}</text>
+        <text class="stat-label">剩余课时</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{student.points}}</text>
+        <text class="stat-label">积分</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-list">
+    <view class="menu-item" data-page="课消明细" bindtap="navigateTo">
+      <view class="menu-left">
+        <text class="menu-icon">📊</text>
+        <text class="menu-title">课消明细</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+
+    <view class="menu-item" data-page="积分明细" bindtap="navigateTo">
+      <view class="menu-left">
+        <text class="menu-icon">🎁</text>
+        <text class="menu-title">积分明细</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+
+    <view class="menu-item" data-page="关于我们" bindtap="navigateTo">
+      <view class="menu-left">
+        <text class="menu-icon">ℹ️</text>
+        <text class="menu-title">关于我们</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view>

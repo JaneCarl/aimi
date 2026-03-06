@@ -1,0 +1,44 @@
+<view class="student-detail-page">
+  <!-- 学生信息 -->
+  <view class="student-info card">
+    <view class="info-header">
+      <image class="student-avatar" src="{{student.photo || '/images/default-avatar.png'}}" mode="aspectFill" />
+      <view class="student-basic">
+        <text class="student-name">{{student.name}}</text>
+        <text class="student-meta">{{getAge(student.birth_date)}}岁 | 剩余课时：{{student.remaining_hours}} | 积分：{{student.points}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近课堂记录 -->
+  <view class="recent-records">
+    <view class="section-header">
+      <text class="section-title">最近课堂记录</text>
+    </view>
+
+    <view class="record-item card" wx:for="{{recentRecords}}" wx:key="id">
+      <view class="record-header">
+        <text class="record-class">{{item.class_name}}</text>
+        <text class="record-date">{{item.class_date}}</text>
+      </view>
+      <view class="record-body">
+        <view class="record-field">
+          <text class="field-label">出勤：</text>
+          <text class="field-value">{{item.status === 'normal' ? '正常' : item.status === 'late' ? '迟到' : item.status}}</text>
+        </view>
+        <view class="record-field" wx:if="{{item.score}}">
+          <text class="field-label">评分：</text>
+          <text class="field-value">{{item.score}}分</text>
+        </view>
+        <view class="record-field" wx:if="{{item.points_awarded}}">
+          <text class="field-label">积分：</text>
+          <text class="field-value">+{{item.points_awarded}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{recentRecords.length === 0}}">
+      <text>暂无课堂记录</text>
+    </view>
+  </view>
+</view>

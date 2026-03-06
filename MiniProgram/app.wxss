@@ -1,0 +1,80 @@
+page {
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  padding-bottom: 100rpx;
+}
+
+/* 主题色 */
+.theme-color {
+  color: #FF6B6B;
+}
+
+.theme-bg {
+  background-color: #FF6B6B;
+}
+
+/* 通用样式 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.btn {
+  background-color: #FF6B6B;
+  color: #fff;
+  border-radius: 48rpx;
+  font-size: 28rpx;
+  padding: 20rpx 40rpx;
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2rpx solid #FF6B6B;
+  color: #FF6B6B;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+}
+
+.tag-primary {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.tag-warning {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+
+.tag-danger {
+  background-color: #ffebee;
+  color: #f44336;
+}
+
+.tag-info {
+  background-color: #e3f2fd;
+  color: #2196f3;
+}

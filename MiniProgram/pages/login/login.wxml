@@ -1,0 +1,33 @@
+<view class="login-page">
+  <view class="login-card">
+    <view class="logo">
+      <image src="/images/logo.png" mode="aspectFit" />
+      <text class="app-name">艾米格斗</text>
+    </view>
+
+    <view class="form">
+      <radio-group bindchange="onRoleChange">
+        <label class="role-option">
+          <radio value="parent" checked="{{role === 'parent'}}" />
+          <text>我是家长</text>
+        </label>
+        <label class="role-option">
+          <radio value="coach" checked="{{role === 'coach'}}" />
+          <text>我是教练</text>
+        </label>
+      </radio-group>
+
+      <view class="input-group">
+        <text class="label">OpenID</text>
+        <input
+          class="input"
+          placeholder="请输入OpenID（测试用）"
+          value="{{openid}}"
+          bindinput="e => this.setData({ openid: e.detail.value })"
+        />
+      </view>
+
+      <button class="login-btn" bindtap="handleLogin">微信登录</button>
+    </view>
+  </view>
+</view>

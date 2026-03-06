@@ -1,0 +1,12 @@
+<view class="tab-bar">
+  <view
+    wx:for="{{list}}"
+    wx:key="pagePath"
+    class="tab-bar-item"
+    data-path="{{item.pagePath}}"
+    bindtap="switchTab"
+  >
+    <image src="{{selected === item.pagePath ? item.selectedIconPath : item.iconPath}}" />
+    <text class="{{selected === item.pagePath ? 'active' : ''}}">{{item.text}}</text>
+  </view>
+</view>

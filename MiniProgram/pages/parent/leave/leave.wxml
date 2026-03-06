@@ -1,0 +1,55 @@
+<view class="leave-page">
+  <!-- 请假表单 -->
+  <view class="leave-form card" wx:if="{{recordId}}">
+    <view class="form-header">
+      <text class="form-title">申请请假</text>
+    </view>
+
+    <view class="class-info">
+      <text class="info-label">课程：</text>
+      <text class="info-value">{{className}}</text>
+    </view>
+    <view class="class-info">
+      <text class="info-label">日期：</text>
+      <text class="info-value">{{classDate}}</text>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">请假理由</text>
+      <textarea
+        class="form-textarea"
+        placeholder="请输入请假理由"
+        value="{{reason}}"
+        bindinput="onReasonInput"
+        maxlength="200"
+      />
+    </view>
+
+    <button class="submit-btn" bindtap="submitLeave">提交申请</button>
+  </view>
+
+  <!-- 请假记录 -->
+  <view class="leave-records">
+    <view class="section-header">
+      <text class="section-title">请假记录</text>
+    </view>
+
+    <view class="record-item card" wx:for="{{leaveRequests}}" wx:key="id">
+      <view class="record-info">
+        <text class="record-class">{{item.class_name || '课程'}}</text>
+        <text class="record-date">{{item.class_date}}</text>
+      </view>
+      <view class="record-reason">
+        <text class="reason-label">理由：</text>
+        <text class="reason-text">{{item.reason}}</text>
+      </view>
+      <view class="record-status">
+        <text class="tag {{getStatusClass(item.status)}}">{{getStatusText(item.status)}}</text>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{leaveRequests.length === 0}}">
+      <text>暂无请假记录</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,91 @@
+.home-page {
+  padding-bottom: 120rpx;
+}
+
+/* 轮播图 */
+.banner-swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 教练卡片 */
+.coach-card {
+  margin: 24rpx;
+}
+
+.coach-info {
+  display: flex;
+  align-items: center;
+
+  .coach-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+  }
+
+  .coach-details {
+    flex: 1;
+
+    .coach-name {
+      display: block;
+      font-size: 32rpx;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8rpx;
+    }
+
+    .coach-welcome {
+      font-size: 24rpx;
+      color: #999;
+    }
+  }
+}
+
+/* 今日课程简览 */
+.today-overview {
+  margin: 0 24rpx 24rpx;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+
+  .overview-title {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .overview-count {
+    font-size: 28rpx;
+    color: #FF6B6B;
+    font-weight: 600;
+  }
+}
+
+.overview-actions {
+  display: flex;
+  gap: 20rpx;
+
+  .action-btn {
+    flex: 1;
+    height: 88rpx;
+    border-radius: 16rpx;
+    font-size: 28rpx;
+    background: #f5f5f5;
+    color: #666;
+
+    &.primary {
+      background: #FF6B6B;
+      color: #fff;
+    }
+  }
+}

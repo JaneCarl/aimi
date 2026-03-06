@@ -1,0 +1,126 @@
+<view class="detail-page">
+  <!-- 课程信息 -->
+  <view class="class-info card">
+    <view class="info-header">
+      <text class="class-name">{{classRecord.class_name}}</text>
+    </view>
+    <view class="info-content">
+      <text class="info-item">
+        <text class="label">时间：</text>
+        <text class="value">{{classRecord.class_date}} {{classRecord.start_time}} - {{classRecord.end_time}}</text>
+      </text>
+    </view>
+  </view>
+
+  <!-- 学员列表 -->
+  <view class="students-list">
+    <view class="section-header">
+      <text class="section-title">学员考勤</text>
+    </view>
+
+    <view class="student-item card" wx:for="{{students}}" wx:key="id">
+      <view class="student-header">
+        <image class="student-avatar" src="{{item.photo || '/images/default-avatar.png'}}" mode="aspectFill" />
+        <text class="student-name">{{item.name}}</text>
+      </view>
+
+      <view class="attendance-form">
+        <view class="form-row">
+          <text class="form-label">考勤状态</text>
+          <radio-group bindchange="onStatusChange" data-index="{{index}}">
+            <label class="radio-item">
+              <radio value="normal" checked="{{item.status === 'normal'}}" />
+              <text>正常</text>
+            </label>
+            <label class="radio-item">
+              <radio value="late" checked="{{item.status === 'late'}}" />
+              <text>迟到</text>
+            </label>
+            <label class="radio-item">
+              <radio value="leave" checked="{{item.status === 'leave'}}" />
+              <text>请假</text>
+            </label>
+            <label class="radio-item">
+              <radio value="absent" checked="{{item.status === 'absent'}}" />
+              <text>缺席</text>
+            </label>
+          </radio-group>
+        </view>
+
+        <view class="form-row">
+          <text class="form-label">评分</text>
+          <input
+            class="score-input"
+            type="digit"
+            placeholder="0-100"
+            value="{{item.score}}"
+            bindinput="onScoreInput"
+            data-index="{{index}}"
+          />
+        </view>
+
+        <view class="form-row">
+          <text class="form-label">评语</text>
+          <textarea
+            class="comment-textarea"
+            placeholder="请输入评语"
+            value="{{item.comment}}"
+            bindinput="onCommentInput"
+            data-index="{{index}}"
+            maxlength="200"
+          />
+        </view>
+
+        <view class="form-row">
+          <text class="form-label">积分</text>
+          <input
+            class="points-input"
+            type="number"
+            placeholder="积分数量"
+            value="{{item.points_awarded}}"
+            bindinput="onPointsInput"
+            data-index="{{index}}"
+          />
+        </view>
+
+        <view class="form-row">
+          <text class="form-label">上传媒体</text>
+          <view class="media-section">
+            <button
+              class="upload-btn"
+              size="mini"
+              bindtap="uploadMedia"
+              data-index="{{index}}"
+            >
+              上传
+            </button>
+            <view
+              class="media-preview"
+              wx:if="{{item.media_url}}"
+              data-url="{{item.media_url}}"
+              data-type="{{item.media_type}}"
+              bindtap="previewMedia"
+            >
+              <image
+                class="preview-image"
+                src="{{item.media_url}}"
+                mode="aspectFill"
+                wx:if="{{item.media_type === 'image'}}"
+              />
+              <text class="preview-video" wx:else>📹</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{students.length === 0}}">
+      <text>暂无学员</text>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-section">
+    <button class="submit-btn" bindtap="submitAttendance">提交考勤</button>
+  </view>
+</view>

@@ -1,0 +1,74 @@
+<view class="my-page">
+  <!-- 教练信息卡片 -->
+  <view class="coach-card">
+    <view class="coach-header">
+      <image class="coach-avatar" src="{{coach.avatar || '/images/default-avatar.png'}}" mode="aspectFill" />
+      <view class="coach-info">
+        <text class="coach-name">{{coach.nickname}}</text>
+        <text class="coach-welcome">欢迎回来！</text>
+      </view>
+    </view>
+
+    <view class="coach-stats">
+      <view class="stat-item">
+        <text class="stat-value">{{stats.classCount}}</text>
+        <text class="stat-label">班级数</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.recordCount}}</text>
+        <text class="stat-label">授课数</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.studentCount}}</text>
+        <text class="stat-label">学生数</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 教学统计 -->
+  <view class="stats-card card">
+    <view class="section-header">
+      <text class="section-title">教学统计</text>
+    </view>
+    <view class="stats-content">
+      <view class="stat-row">
+        <text class="stat-label">平均评分</text>
+        <text class="stat-value highlight">{{stats.avgScore}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-list">
+    <view class="menu-item" data-page="消息通知" bindtap="navigateTo">
+      <view class="menu-left">
+        <text class="menu-icon">🔔</text>
+        <text class="menu-title">消息通知</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+
+    <view class="menu-item" data-page="教学记录" bindtap="navigateTo">
+      <view class="menu-left">
+        <text class="menu-icon">📝</text>
+        <text class="menu-title">教学记录</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+
+    <view class="menu-item" data-page="关于我们" bindtap="navigateTo">
+      <view class="menu-left">
+        <text class="menu-icon">ℹ️</text>
+        <text class="menu-title">关于我们</text>
+      </view>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view>

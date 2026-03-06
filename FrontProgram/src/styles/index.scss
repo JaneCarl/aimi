@@ -1,0 +1,109 @@
+:root {
+  --el-color-primary: #FF6B6B;
+  --el-color-primary-light-3: #ff8c8c;
+  --el-color-primary-light-5: #ffadad;
+  --el-color-primary-light-7: #ffcece;
+  --el-color-primary-light-9: #ffefef;
+  --el-color-primary-dark-2: #d95a5a;
+}
+
+#app {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  padding: 20px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .page-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.search-form {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #f5f7fa;
+  border-radius: 8px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+
+  .stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    font-size: 28px;
+    color: #fff;
+  }
+
+  .stat-info {
+    flex: 1;
+
+    .stat-label {
+      font-size: 14px;
+      color: #909399;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+}
+
+.stat-card.primary {
+  .stat-icon {
+    background: linear-gradient(135deg, #FF6B6B 0%, #ee5a5a 100%);
+  }
+}
+
+.stat-card.success {
+  .stat-icon {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44b8b0 100%);
+  }
+}
+
+.stat-card.warning {
+  .stat-icon {
+    background: linear-gradient(135deg, #FFE66D 0%, #ffd93d 100%);
+  }
+}
+
+.stat-card.info {
+  .stat-icon {
+    background: linear-gradient(135deg, #95E1D3 0%, #7dd1c0 100%);
+  }
+}
